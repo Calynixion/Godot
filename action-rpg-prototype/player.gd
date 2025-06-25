@@ -1,7 +1,10 @@
 extends CharacterBody2D
 @onready var sprite=get_node("sprite")
+@onready var dash_cooldown=get_node("dash_cooldown")
+
 
 var speed = 200
+var dash_speed = 1500
 
 func _physics_process(_delta):
 	# setup direction of movement
@@ -13,5 +16,8 @@ func _physics_process(_delta):
 	#normalize the directional movement
 	direction = direction.normalized()
 	# setup the actual movement
-	velocity = (direction * speed)
+	if Input.is_action_just_pressed("dash"):
+		velocity = (direction * dash_speed)
+	else:
+		velocity = (direction * speed)
 	move_and_slide()

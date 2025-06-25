@@ -9,6 +9,4 @@ func _physics_process(delta):
 		pass
 	else:
 		add_constant_force((target.position - position).normalized() * delta * speed)
-		
-		move_and_collide()
-	
+			

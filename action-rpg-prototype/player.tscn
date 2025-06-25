@@ -104,3 +104,5 @@ libraries = {
 [node name="hitbox" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="dash_cooldown" type="Timer" parent="."]
