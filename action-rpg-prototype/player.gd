@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var sprite=get_node("sprite")
 
-var speed = 500
+var speed = 200
 
 func _physics_process(_delta):
 	# setup direction of movement
