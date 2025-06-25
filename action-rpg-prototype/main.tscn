@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bra2bf4yele8"]
 
-[ext_resource type="PackedScene" uid="uid://b7ckwgc2ohxlf" path="res://tile_map_layer.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://rsh6ll36fsaf" path="res://tile_map_layer.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bmpjjebl3uiix" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://b7nqj887yt30y" path="res://enemy.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dn5frft5o608b" path="res://enemy.tscn" id="3_h2yge"]
 
 [node name="main" type="Node2D"]
 metadata/_edit_lock_ = true
