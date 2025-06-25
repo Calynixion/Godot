@@ -101,6 +101,6 @@ libraries = {
 
 [node name="hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+[node name="hitbox" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_onrkg")
