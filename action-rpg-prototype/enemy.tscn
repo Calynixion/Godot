@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn5frft5o608b"]
+[gd_scene load_steps=5 format=3 uid="uid://dn5frft5o608b"]
 
-[ext_resource type="Script" uid="uid://qeeqfelqt05e" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://cxhfymx35hmat" path="res://rigid_body_2d.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://byv0x68o1w6kc" path="res://icon.svg" id="2_qi2p4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iifgy"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
-<<<<<<< HEAD
-=======
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
->>>>>>> 6edd341dc58672cd01324acf48e1e50b4f552faf
 script = ExtResource("1_4gyqm")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 scale = Vector2(0.148438, 0.144531)
@@ -20,3 +20,6 @@ texture = ExtResource("2_qi2p4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_iifgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4gyqm")
