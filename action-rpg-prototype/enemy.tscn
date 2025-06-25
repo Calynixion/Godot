@@ -5,14 +5,16 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iifgy"]
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
 script = ExtResource("1_4gyqm")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 scale = Vector2(0.148438, 0.144531)
 texture = ExtResource("2_qi2p4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_iifgy")
