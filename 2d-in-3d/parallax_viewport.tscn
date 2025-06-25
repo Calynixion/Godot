@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhgxgiumvefn1"]
+
+[ext_resource type="PackedScene" uid="uid://wyq36spxxbqv" path="res://parallax_1.tscn" id="1_d35i7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_d35i7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fxxcw"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8f4cf"]
+resource_local_to_scene = true
+transparency = 4
+albedo_texture = SubResource("ViewportTexture_fxxcw")
+
+[node name="Parallax Viewport" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Parallax 1" parent="SubViewport" instance=ExtResource("1_d35i7")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_d35i7")
+skeleton = NodePath("../SubViewport")
+surface_material_override/0 = SubResource("StandardMaterial3D_8f4cf")

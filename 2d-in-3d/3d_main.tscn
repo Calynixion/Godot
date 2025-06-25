@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d8owq223to26"]
+
+[ext_resource type="PackedScene" uid="uid://cvfhsjnjabr4e" path="res://3d_viewport.tscn" id="1_uw8wt"]
+[ext_resource type="PackedScene" uid="uid://b2g25a7ta5bwm" path="res://3d_viewport_2.tscn" id="2_t4uy4"]
+[ext_resource type="PackedScene" uid="uid://bhgxgiumvefn1" path="res://parallax_viewport.tscn" id="3_uqnsk"]
+
+[node name="3d main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82835, 0, 1.08154)
+
+[node name="3d viewport" parent="." instance=ExtResource("1_uw8wt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.40307, 0, -4.59266)
+
+[node name="3d viewport 2" parent="." instance=ExtResource("2_t4uy4")]
+transform = Transform3D(0.682356, 0, -0.73102, 0, 1, 0, 0.73102, 0, 0.682356, 3.99919, 0.0164804, 1.02199)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41164, 0, -3.10743)
+light_size = 1.0
+
+[node name="Parallax Viewport" parent="." instance=ExtResource("3_uqnsk")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.07247, 0, -2.23372)

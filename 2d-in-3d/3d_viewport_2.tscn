@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2g25a7ta5bwm"]
+
+[ext_resource type="PackedScene" uid="uid://blpq2ju62qrb4" path="res://2d_main.tscn" id="1_p2a4i"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_p2a4i"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xg0es"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o16ia"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_xg0es")
+
+[node name="3d viewport 2" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1280, 720)
+
+[node name="2d Main" parent="SubViewport" instance=ExtResource("1_p2a4i")]
+position = Vector2(-1280, 360)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(16, 0, 0, 0, 9, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_p2a4i")
+surface_material_override/0 = SubResource("StandardMaterial3D_o16ia")

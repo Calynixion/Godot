@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://wyq36spxxbqv"]
+
+[ext_resource type="Texture2D" uid="uid://bk3p1y1q0d1pt" path="res://image-removebg-preview.png" id="1_vxdx2"]
+
+[node name="Parallax 1" type="Node2D"]
+
+[node name="Image-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(265.75, 164.25)
+scale = Vector2(1.07114, 0.648297)
+texture = ExtResource("1_vxdx2")
