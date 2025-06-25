@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bmpjjebl3uiix" path="res://player.tscn" id="1_ig7tw"]
 
 [node name="main" type="Node2D"]
+metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(480, 368)
+position = Vector2(160, 160)
 
 [node name="player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(488, 336)
+position = Vector2(168, 128)
