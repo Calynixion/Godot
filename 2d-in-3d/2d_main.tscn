@@ -1,10 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://blpq2ju62qrb4"]
+[gd_scene load_steps=10 format=3 uid="uid://blpq2ju62qrb4"]
 
 [ext_resource type="Script" uid="uid://dpg40h4kdkao" path="res://character_body_2d.gd" id="1_1ydwn"]
 [ext_resource type="Texture2D" uid="uid://dxybl7qpwn50" path="res://icon.svg" id="1_p82n4"]
+[ext_resource type="Texture2D" uid="uid://cbafqqbpfuqiw" path="res://FREE Mana Seed Character Base Demo 2.0/char_a_p1/char_a_p1_0bas_humn_v00.png" id="2_agal6"]
+[ext_resource type="Script" uid="uid://c7dxml0upk1p2" path="res://mouse.gd" id="4_0esi7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0esi7"]
+atlas = ExtResource("2_agal6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olcpm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0esi7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agal6"]
-size = Vector2(128, 128)
+size = Vector2(16, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ydwn"]
 texture = ExtResource("1_p82n4")
@@ -145,11 +162,15 @@ sources/0 = SubResource("TileSetAtlasSource_1ydwn")
 [node name="2d Main" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(384, 0)
+position = Vector2(480, 304)
 script = ExtResource("1_1ydwn")
 metadata/_edit_group_ = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_olcpm")
+
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
 texture = ExtResource("1_p82n4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -157,3 +178,11 @@ shape = SubResource("RectangleShape2D_agal6")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_agal6")
+
+[node name="mouse" type="Node2D" parent="."]
+script = ExtResource("4_0esi7")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="mouse"]
+offset_right = 40.0
+offset_bottom = 40.0
