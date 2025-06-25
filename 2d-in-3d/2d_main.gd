@@ -1,6 +1,7 @@
 extends Node2D
-@onready var player=get_node("../CharacterBody2D")
-@onready var debug=get_node("../debug")
+@onready var player=get_node("CharacterBody2D")
+@onready var mouse=get_node("mouse")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -8,5 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position=get_global_mouse_position()
-	debug.text=str(global_position)+str(player.global_position)
+	queue_redraw()
+
+func _draw():
+	draw_line(mouse.position,player.position,Color.GREEN,1.0)

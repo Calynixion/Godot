@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://blpq2ju62qrb4"]
+[gd_scene load_steps=11 format=3 uid="uid://blpq2ju62qrb4"]
 
 [ext_resource type="Script" uid="uid://dpg40h4kdkao" path="res://character_body_2d.gd" id="1_1ydwn"]
+[ext_resource type="Script" uid="uid://cud7ulls8g11d" path="res://2d_main.gd" id="1_olcpm"]
 [ext_resource type="Texture2D" uid="uid://dxybl7qpwn50" path="res://icon.svg" id="1_p82n4"]
 [ext_resource type="Texture2D" uid="uid://cbafqqbpfuqiw" path="res://FREE Mana Seed Character Base Demo 2.0/char_a_p1/char_a_p1_0bas_humn_v00.png" id="2_agal6"]
 [ext_resource type="Script" uid="uid://c7dxml0upk1p2" path="res://mouse.gd" id="4_0esi7"]
@@ -160,6 +161,7 @@ physics_layer_0/collision_mask = 255
 sources/0 = SubResource("TileSetAtlasSource_1ydwn")
 
 [node name="2d Main" type="Node2D"]
+script = ExtResource("1_olcpm")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(480, 304)
@@ -180,9 +182,14 @@ shape = SubResource("RectangleShape2D_agal6")
 tile_set = SubResource("TileSet_agal6")
 
 [node name="mouse" type="Node2D" parent="."]
+position = Vector2(64, 128)
 script = ExtResource("4_0esi7")
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="mouse"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="debug" type="RichTextLabel" parent="."]
+offset_right = 768.0
+offset_bottom = 64.0
