@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmpjjebl3uiix"]
+[gd_scene load_steps=15 format=3 uid="uid://bmpjjebl3uiix"]
 
 [ext_resource type="Texture2D" uid="uid://cbafqqbpfuqiw" path="res://FREE Mana Seed Character Base Demo 2.0/char_a_p1/char_a_p1_0bas_humn_v00.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://e2r28rdv5b8v" path="res://player.gd" id="1_onrkg"]
@@ -72,13 +72,22 @@ size = Vector2(16, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(16, 28)
 
+[sub_resource type="Animation" id="Animation_onrkg"]
+resource_name = "Walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i3pqv"]
+_data = {
+&"Walk": SubResource("Animation_onrkg")
+}
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
+metadata/_edit_group_ = true
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i3pqv")
 animation = &"walk"
-frame_progress = 0.227923
+frame_progress = 0.354054
 
 [node name="terrain_collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -89,3 +98,7 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="animator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../sprite")
+libraries = {
+&"": SubResource("AnimationLibrary_i3pqv")
+}
