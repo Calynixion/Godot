@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c66mk75oi632"]
+[gd_scene load_steps=4 format=3 uid="uid://c66mk75oi632"]
 
 [ext_resource type="Script" uid="uid://ciguxposqfad2" path="res://enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="2_qi2p4"]
@@ -6,27 +6,25 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_iifgy"]
 radius = 68.3593
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_epg4t"]
-radius = 95.1315
-
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_4gyqm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.0313726, 1)
+position = Vector2(0, -1)
 texture = ExtResource("2_qi2p4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_iifgy")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_epg4t")
-
 [node name="RayCast2D1" type="RayCast2D" parent="."]
+target_position = Vector2(400, -60)
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(400, -20)
 
 [node name="RayCast2D3" type="RayCast2D" parent="."]
+target_position = Vector2(400, 20)
 
 [node name="RayCast2D4" type="RayCast2D" parent="."]
+target_position = Vector2(400, 60)
