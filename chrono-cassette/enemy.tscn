@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://eiukj2jsfsat"]
+[gd_scene load_steps=6 format=3 uid="uid://eiukj2jsfsat"]
 
 [ext_resource type="Script" uid="uid://dp6e1iawl4y8p" path="res://enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="2_qi2p4"]
@@ -17,7 +17,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epg4t"]
 size = Vector2(128, 126)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+radius = 131.015
+
 [node name="Enemy" type="CharacterBody2D"]
+up_direction = Vector2(0, 1)
 script = ExtResource("1_4gyqm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -26,3 +30,22 @@ sprite_frames = SubResource("SpriteFrames_iifgy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_epg4t")
+
+[node name="RayCast2D1" type="RayCast2D" parent="."]
+target_position = Vector2(400, -60)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(400, -20)
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+target_position = Vector2(400, 20)
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+target_position = Vector2(400, 60)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4gyqm")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
