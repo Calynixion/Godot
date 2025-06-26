@@ -17,7 +17,7 @@ animations = [{
 size = Vector2(129, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1tfj"]
-size = Vector2(129, 127)
+size = Vector2(129, 128)
 
 [node name="vip" type="Node2D"]
 
@@ -32,6 +32,5 @@ sprite_frames = SubResource("SpriteFrames_igmyx")
 shape = SubResource("RectangleShape2D_y0ypd")
 
 [node name="terrain_colision" type="CollisionShape2D" parent="vip"]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_n1tfj")
 metadata/_edit_group_ = true
