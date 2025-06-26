@@ -14,13 +14,13 @@
 [node name="kill_controller" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="player" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(168, 104)
+position = Vector2(128, 128)
 
-[node name="vip" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(120, 136)
+[node name="vip" parent="." groups=["vip"] instance=ExtResource("2_h2yge")]
+position = Vector2(232, 88)
 
-[node name="sniper" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(448, 72)
+[node name="sniper" parent="." groups=["sniper"] instance=ExtResource("4_1bvp3")]
+position = Vector2(232, -40)
 
 [node name="Enemy" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(128, 384)
