@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://c38ecgde1hk3x"]
 
-[node name="UI" type="Node2D"]
+[node name="ui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cassette" type="AnimatedSprite2D" parent="."]
