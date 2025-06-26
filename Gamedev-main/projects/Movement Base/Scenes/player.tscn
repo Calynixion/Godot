@@ -767,7 +767,7 @@ frame = 5
 
 [node name="animator" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qgngs")
+&"": SubResource("AnimationLibrary_qgngs")
 }
 script = ExtResource("3_24ao6")
 
