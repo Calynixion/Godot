@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5sh4avbu02fy"]
+
+[ext_resource type="Script" uid="uid://ckbcntwqn72ti" path="res://kill_controller.gd" id="1_0nmwp"]
+
+[node name="kill_controller" type="Node"]
+script = ExtResource("1_0nmwp")
+
+[node name="sniper_timer" type="Timer" parent="."]
+
+[node name="debug" type="RichTextLabel" parent="."]
+offset_right = 384.0
+offset_bottom = 64.0
