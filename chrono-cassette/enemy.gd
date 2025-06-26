@@ -19,3 +19,12 @@ func _process(delta):
 	if ray_cast4.is_colliding():
 		print("raycast 4 collide")
 		
+	#if ray_cast1.is_colliding():
+		#if ray_cast1.get_collider() = "player"
+	#if ray_cast2.is_colliding():
+		#print("raycast 2 collide")
+	#if ray_cast3.is_colliding():
+		#print("raycast 3 collide")
+	#if ray_cast4.is_colliding():
+		#print("raycast 4 collide")
+	print("test")
