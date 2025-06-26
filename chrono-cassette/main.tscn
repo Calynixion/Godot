@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpi8bhqkihml0"]
+[gd_scene load_steps=5 format=3 uid="uid://dpi8bhqkihml0"]
 
 [ext_resource type="PackedScene" uid="uid://cbatiu5ul2vfj" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c1vxo6i164c55" path="res://vip.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c5sh4avbu02fy" path="res://kill_controller.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://tep7rsb176bf" path="res://sniper.tscn" id="4_1bvp3"]
 
 [node name="main" type="Node2D"]
 
@@ -10,3 +12,8 @@ position = Vector2(384, 384)
 
 [node name="vip" parent="." instance=ExtResource("2_h2yge")]
 position = Vector2(256, 192)
+
+[node name="kill_controller" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="sniper" parent="." groups=["sniper"] instance=ExtResource("4_1bvp3")]
+position = Vector2(1600, 64)
