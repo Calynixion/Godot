@@ -1,8 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1vxo6i164c55"]
+[gd_scene load_steps=5 format=3 uid="uid://c1vxo6i164c55"]
 
 [ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="1_igmyx"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_igmyx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_igmyx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0ypd"]
+size = Vector2(129, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1tfj"]
+size = Vector2(129, 126)
+
 [node name="vip" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_igmyx")
+[node name="vip" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="vip"]
+sprite_frames = SubResource("SpriteFrames_igmyx")
+
+[node name="hitbox" type="Area2D" parent="vip"]
+
+[node name="hitbox" type="CollisionShape2D" parent="vip/hitbox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_y0ypd")
+
+[node name="terrain_colision" type="CollisionShape2D" parent="vip"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_n1tfj")
