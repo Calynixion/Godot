@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1vxo6i164c55"]
+[gd_scene load_steps=6 format=3 uid="uid://c1vxo6i164c55"]
 
 [ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="1_igmyx"]
+[ext_resource type="Script" uid="uid://ccv1joo74f7a7" path="res://vip.gd" id="1_y0ypd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_igmyx"]
 animations = [{
@@ -20,6 +21,7 @@ size = Vector2(129, 128)
 size = Vector2(129, 128)
 
 [node name="vip" type="Node2D"]
+script = ExtResource("1_y0ypd")
 metadata/_edit_group_ = true
 
 [node name="vip" type="CharacterBody2D" parent="."]
