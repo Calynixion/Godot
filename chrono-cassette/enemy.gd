@@ -9,14 +9,22 @@ extends CharacterBody2D
 #if distraction then save point on path and go to distraction
 #then go back to point on path
 
+func _ready():
+	position.y = 166
+
+
 func _process(delta):
-	#if ray_cast1.is_colliding():
-		#if ray_cast1.get_collider() = "player"
+	#print(position)
+	if ray_cast1.is_colliding():
+		print(ray_cast1.get_collider().position)
+		if ray_cast1.get_collider().name == "player":
+			
+			#velocity = (ray_cast1.get_collider().position - position).normalized() * 1000 * delta
+			move_and_slide()
 	#if ray_cast2.is_colliding():
 		#print("raycast 2 collide")
 	#if ray_cast3.is_colliding():
 		#print("raycast 3 collide")
 	#if ray_cast4.is_colliding():
 		#print("raycast 4 collide")
-	print("test")
 	#testtesttest
