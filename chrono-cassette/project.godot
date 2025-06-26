@@ -21,6 +21,10 @@ window/size/viewport_width=320
 window/size/viewport_height=240
 window/stretch/mode="viewport"
 
+[global_group]
+
+overscrn=""
+
 [input]
 
 left={
