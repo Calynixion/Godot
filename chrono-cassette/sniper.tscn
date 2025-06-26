@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://tep7rsb176bf"]
+[gd_scene load_steps=0 format=3 uid="uid://tep7rsb176bf"]
 
 [node name="sniper" type="Node2D"]
 
