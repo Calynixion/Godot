@@ -11,5 +11,4 @@ offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 2
+[node name="laser" type="AnimatedSprite2D" parent="."]
