@@ -1,8 +1,8 @@
 extends Node
 @onready var sniper_timer=get_node("sniper_timer")
 @onready var debug=get_node("debug")
-@onready var sniper = get_tree().get_nodes_in_group("sniper")
-
+@onready var sniper = get_tree().get_first_node_in_group("sniper")
+@onready var vip = get_tree().get_first_node_in_group("vip")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sniper_timer.start(5)
@@ -17,6 +17,6 @@ func _process(delta: float) -> void:
 		debug.text="Done"
 		sniper_timer.stop()
 		if sniper != null:
-			pass
+			sniper.snipe(vip)
 		
 	

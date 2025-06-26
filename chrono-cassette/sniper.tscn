@@ -10,3 +10,6 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 2
