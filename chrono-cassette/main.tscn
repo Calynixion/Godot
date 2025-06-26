@@ -1,23 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsbp6qtfnw7ys"]
+[gd_scene load_steps=7 format=3 uid="uid://bsbp6qtfnw7ys"]
 
 [ext_resource type="PackedScene" uid="uid://cbatiu5ul2vfj" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dfbly4bnqnm7l" path="res://terrain.tscn" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c1vxo6i164c55" path="res://vip.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c5sh4avbu02fy" path="res://kill_controller.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://tep7rsb176bf" path="res://sniper.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" path="res://enemy.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dvl2y7c0th1k" path="res://enemy.tscn" id="5_lquwl"]
 
 [node name="main" type="Node2D"]
+
+[node name="terrain" parent="." instance=ExtResource("1_7mycd")]
 
 [node name="kill_controller" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="player" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(456, 80)
+position = Vector2(168, 104)
 
 [node name="vip" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(288, 216)
+position = Vector2(120, 136)
 
 [node name="sniper" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(1336, 88)
+position = Vector2(448, 72)
 
 [node name="Enemy" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(128, 384)

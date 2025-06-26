@@ -21,6 +21,7 @@ size = Vector2(128, 128)
 size = Vector2(128, 128)
 
 [node name="player" type="Node2D"]
+scale = Vector2(0.125, 0.125)
 metadata/_edit_group_ = true
 
 [node name="player" type="CharacterBody2D" parent="."]

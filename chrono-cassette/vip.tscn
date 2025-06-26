@@ -21,6 +21,7 @@ size = Vector2(129, 128)
 size = Vector2(129, 128)
 
 [node name="vip" type="Node2D"]
+scale = Vector2(0.125, 0.125)
 script = ExtResource("1_y0ypd")
 metadata/_edit_group_ = true
 
