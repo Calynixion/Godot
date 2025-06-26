@@ -6,7 +6,7 @@
 [node name="main" type="Node2D"]
 
 [node name="player1" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(384, 320)
+position = Vector2(384, 384)
 
 [node name="vip" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(176, 320)
+position = Vector2(256, 192)
