@@ -1,5 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dn5frft5o608b"]
 
+<<<<<<< HEAD
+[ext_resource type="Script" uid="uid://dlef04pm6vlgs" path="res://rigid_body_2d.gd" id="1_4gyqm"]
+=======
+>>>>>>> 93e76af96be8744c970e72820cc79a2edbcbf2b4
 [ext_resource type="Texture2D" uid="uid://byv0x68o1w6kc" path="res://icon.svg" id="2_qi2p4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
