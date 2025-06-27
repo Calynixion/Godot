@@ -22,6 +22,8 @@ extends CharacterBody2D
 	#else:
 		#var overscrn = get_tree().get_first_node_in_group("main")
 		
+		
+	
 
 func _process(delta):
 	if ray_cast1.is_colliding():
@@ -56,4 +58,5 @@ func _process(delta):
 			
 func caught():
 	main.gameovernow()
+	
 		

@@ -27,6 +27,7 @@ script = ExtResource("1_4c57u")
 
 [node name="player" parent="." instance=ExtResource("1_0xm2m")]
 position = Vector2(148, 78)
+scale = Vector2(0.125, 0.125)
 
 [node name="vip" parent="." groups=["vip"] instance=ExtResource("2_h2yge")]
 position = Vector2(234, 126)
@@ -47,4 +48,7 @@ rotation = -1.07796
 [node name="ui" parent="." instance=ExtResource("8_5vw27")]
 
 [node name="GameOverScrn" parent="." instance=ExtResource("9_kek77")]
+visible = false
 offset_left = -3.0
+
+[connection signal="restarted" from="GameOverScrn" to="." method="_on_game_over_scrn_restarted"]
