@@ -22,12 +22,12 @@ point_count = 6
 script = ExtResource("1_4c57u")
 
 [node name="terrain" parent="." instance=ExtResource("1_7mycd")]
+scale = Vector2(2, 2)
 
 [node name="kill_controller" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="player" parent="." instance=ExtResource("1_0xm2m")]
 position = Vector2(148, 78)
-scale = Vector2(0.125, 0.125)
 
 [node name="vip" parent="." groups=["vip"] instance=ExtResource("2_h2yge")]
 position = Vector2(234, 126)
@@ -38,6 +38,7 @@ position = Vector2(232, -40)
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(0, 1)
 curve = SubResource("Curve2D_272bh")
+metadata/_edit_group_ = true
 
 [node name="Pathfollower" parent="Path2D" instance=ExtResource("6_272bh")]
 position = Vector2(29, 209)
