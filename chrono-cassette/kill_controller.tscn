@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckbcntwqn72ti" path="res://kill_controller.gd" id="1_0nmwp"]
 
-[node name="kill_controller" type="Node"]
+[node name="kill_controller" type="Node" groups=["killcontrol"]]
 script = ExtResource("1_0nmwp")
 
 [node name="sniper_timer" type="Timer" parent="."]

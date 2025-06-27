@@ -25,3 +25,4 @@ func _process(delta: float) -> void:
 func _on_sniper_timer_timeout():
 	sniper.snipe(vip)
 	main.gameovernow()
+	
