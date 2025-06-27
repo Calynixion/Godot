@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsbp6qtfnw7ys"]
+[gd_scene load_steps=12 format=3 uid="uid://bsbp6qtfnw7ys"]
 
 [ext_resource type="PackedScene" uid="uid://cbatiu5ul2vfj" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://fvgltwv54n48" path="res://main.gd" id="1_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dfbly4bnqnm7l" path="res://terrain.tscn" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c1vxo6i164c55" path="res://vip.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c5sh4avbu02fy" path="res://kill_controller.tscn" id="3_h2yge"]
@@ -17,14 +18,15 @@ _data = {
 }
 point_count = 6
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" groups=["main"]]
+script = ExtResource("1_4c57u")
 
 [node name="terrain" parent="." instance=ExtResource("1_7mycd")]
 
 [node name="kill_controller" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="player" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(45, 133)
+position = Vector2(148, 78)
 
 [node name="vip" parent="." groups=["vip"] instance=ExtResource("2_h2yge")]
 position = Vector2(234, 126)

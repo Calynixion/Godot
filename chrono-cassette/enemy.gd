@@ -1,5 +1,7 @@
 extends CharacterBody2D
-#@export var gameoverscrn : Control
+
+
+@onready var main = get_tree().get_first_node_in_group("main")
 @onready var ray_cast1 = $RayCast2D1
 @onready var ray_cast2 = $RayCast2D2
 @onready var ray_cast3 = $RayCast2D3
@@ -7,16 +9,18 @@ extends CharacterBody2D
 @onready var ray_cast5 = $RayCast2D5
 
 
+
+
 #follow path
 #if distraction then save point on path and go to distraction
 #then go back to point on path
 
 	
-func _ready():
-	if get_tree().get_first_node_in_group("overscrn") == null:
-		pass
-	else:
-		var overscrn = get_tree().get_first_node_in_group("overscrn")
+#func _ready():
+	#if get_tree().get_first_node_in_group("main") == null:
+		#pass
+	#else:
+		#var overscrn = get_tree().get_first_node_in_group("main")
 		
 
 func _process(delta):
@@ -49,7 +53,7 @@ func _process(delta):
 			caught()
 			#velocity = (ray_cast5.target_position).normalized().rotated(rotation) * 4000 * delta
 			move_and_slide()
-		
-
+			
 func caught():
-	overscrn.visibility = true
+	main.gameovernow()
+		
