@@ -7,3 +7,5 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="cassette" type="AnimatedSprite2D" parent="."]
+
+[node name="Node" type="Node" parent="."]

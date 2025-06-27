@@ -8,5 +8,6 @@ script = ExtResource("1_0nmwp")
 [node name="sniper_timer" type="Timer" parent="."]
 
 [node name="debug" type="RichTextLabel" parent="."]
-offset_right = 384.0
-offset_bottom = 64.0
+offset_left = 260.0
+offset_right = 417.0
+offset_bottom = 91.0
