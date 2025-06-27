@@ -1,16 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://0vj6ine00j6"]
+[gd_scene load_steps=7 format=3 uid="uid://c05grg0a1ba1q"]
 
 [ext_resource type="Script" uid="uid://khx50wlmgbw1" path="res://windowsnipe.gd" id="1_41qks"]
-[ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="2_1ht4r"]
+[ext_resource type="Texture2D" uid="uid://cdfke4eb5oqbx" path="res://Assets/Tilesets/tileset_2.png" id="2_41qks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ht4r"]
+atlas = ExtResource("2_41qks")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7kmy"]
+atlas = ExtResource("2_41qks")
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j7kmy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1ht4r")
+"texture": SubResource("AtlasTexture_1ht4r")
 }],
 "loop": true,
-"name": &"default",
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7kmy")
+}],
+"loop": true,
+"name": &"open",
 "speed": 5.0
 }]
 
@@ -20,23 +36,25 @@ radius = 24.0832
 [node name="Windowsnipe" type="Area2D"]
 script = ExtResource("1_41qks")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-scale = Vector2(0.1, 0.1)
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_j7kmy")
+animation = &"open"
 
 [node name="Label" type="Label" parent="."]
 z_index = 2
 offset_left = -20.0
-offset_top = -5.0
+offset_top = 2.0
 offset_right = 20.0
-offset_bottom = 18.0
+offset_bottom = 25.0
 text = "E"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_mvv74")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
