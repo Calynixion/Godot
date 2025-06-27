@@ -11,3 +11,5 @@ script = ExtResource("1_0nmwp")
 offset_left = 260.0
 offset_right = 417.0
 offset_bottom = 91.0
+
+[connection signal="timeout" from="sniper_timer" to="." method="_on_sniper_timer_timeout"]
