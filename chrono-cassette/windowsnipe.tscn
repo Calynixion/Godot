@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://0vj6ine00j6"]
+[gd_scene load_steps=5 format=3 uid="uid://c05grg0a1ba1q"]
 
 [ext_resource type="Script" uid="uid://khx50wlmgbw1" path="res://windowsnipe.gd" id="1_41qks"]
 [ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="2_1ht4r"]
