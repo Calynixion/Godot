@@ -18,6 +18,9 @@ scale = Vector2(2, 2)
 
 [node name="kill_controller" parent="." instance=ExtResource("3_h2yge")]
 
+[node name="Windowsnipe" parent="." instance=ExtResource("11_efxa6")]
+position = Vector2(240, 48)
+
 [node name="player" parent="." instance=ExtResource("1_0xm2m")]
 position = Vector2(148, 78)
 
@@ -32,8 +35,5 @@ position = Vector2(232, -40)
 [node name="GameOverScrn" parent="." instance=ExtResource("9_kek77")]
 visible = false
 offset_left = -3.0
-
-[node name="Windowsnipe" parent="." instance=ExtResource("11_efxa6")]
-position = Vector2(240, 48)
 
 [connection signal="restarted" from="GameOverScrn" to="." method="_on_game_over_scrn_restarted"]
