@@ -27,9 +27,12 @@ func _physics_process(delta: float) -> void:
 			held_path=true
 			record_timer.start(cassette_length)
 			record_timer.paused=true
+			var offset=position-cassette_path.curve.get_point_position(0)
+			cassette_path.position+=offset
 		recording=false
 	elif held_path==true:
 		#function to move path to player position
+		cassette_path.position+=((direction*speed)/60)
 		debug.text="moving"
 	elif recording==true:
 		record_cassette()
