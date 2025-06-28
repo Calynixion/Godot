@@ -42,6 +42,7 @@ position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="record_timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="debug" type="RichTextLabel" parent="."]
 offset_right = 128.0
