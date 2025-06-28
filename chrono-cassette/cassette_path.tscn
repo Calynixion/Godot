@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://blnsp3tymie6p"]
+
+[sub_resource type="Curve2D" id="Curve2D_h74ws"]
+
+[node name="cassette_path" type="Path2D" groups=["path"]]
+curve = SubResource("Curve2D_h74ws")
+
+[node name="path" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
+
+[node name="follower" type="Node2D" parent="path"]
+
+[node name="ColorRect" type="ColorRect" parent="path/follower"]
+offset_right = 8.0
+offset_bottom = 8.0
