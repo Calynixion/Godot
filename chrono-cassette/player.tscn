@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbatiu5ul2vfj"]
+[gd_scene load_steps=8 format=3 uid="uid://cbatiu5ul2vfj"]
 
 [ext_resource type="Script" uid="uid://b7kxfwlugi8gy" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://chirlu0j0dnhd" path="res://Assets/Tilesets/player.png" id="2_onrkg"]
@@ -24,8 +24,11 @@ size = Vector2(16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(16, 16)
 
+[sub_resource type="Curve2D" id="Curve2D_onrkg"]
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_onrkg")
+metadata/_edit_group_ = true
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -39,3 +42,18 @@ shape = SubResource("RectangleShape2D_4flbx")
 [node name="terrain_collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="record_timer" type="Timer" parent="."]
+
+[node name="cassette_path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_onrkg")
+
+[node name="path" type="PathFollow2D" parent="cassette_path"]
+rotates = false
+loop = false
+
+[node name="follower" type="Node2D" parent="cassette_path/path"]
+
+[node name="ColorRect" type="ColorRect" parent="cassette_path/path/follower"]
+offset_right = 8.0
+offset_bottom = 8.0
