@@ -6,6 +6,10 @@ const speed = 150.0
 var recording=false
 var cassette_length=2
 var held_path=false
+var play_speed=1
+var play_progress=0
+var playing=false
+var path_len=0
 @onready var debug=get_node("debug")
 func over():
 	queue_free() #deletes the player when game is over
@@ -15,6 +19,9 @@ func _physics_process(delta: float) -> void:
 	var direction=Input.get_vector("left","right","up","down")
 	direction=direction.normalized()
 	velocity=direction * speed
+	var old_pos=position
+	move_and_slide()
+	
 	if Input.is_action_just_pressed("record_cassette"):
 		record_timer.start(cassette_length)
 		record_timer.one_shot=true
@@ -35,17 +42,36 @@ func _physics_process(delta: float) -> void:
 		recording=false
 	elif held_path==true:
 		#function to move path to player position
-		cassette_path.position+=((direction*speed)/60)
+		#cassette_path.position+=((direction*speed)/60)
+		cassette_path.position+=position-old_pos
 		#debug.text="moving"
 	elif recording==true and direction!=Vector2(0,0):
 		record_cassette()
 	if Input.is_action_just_pressed("play_cassette") and recording==false:
 		play_cassette()
-	move_and_slide()
+	if playing==true:
+		play_progress+=play_speed
+		if play_progress>path_len:
+			playing=false
+		else:
+			follow.progress+=play_speed
+	debug.text=str(follow.global_position)+str(global_position)
 
 func record_cassette():
 	cassette_path.curve.add_point(position)
 	#debug.text="active"
 
 func play_cassette():
-	follow.progress=50
+	if playing==false:
+		playing=true
+		path_len=cassette_path.curve.get_baked_length()
+		play_progress=0
+	else:
+		playing=false
+		path_len=0
+
+func stop_cassette():
+	playing=false
+	var offset=position-cassette_path.curve.get_point_position(0)
+	cassette_path.position+=offset
+	

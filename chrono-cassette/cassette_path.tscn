@@ -1,16 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://blnsp3tymie6p"]
+[gd_scene load_steps=4 format=3 uid="uid://blnsp3tymie6p"]
+
+[ext_resource type="Script" uid="uid://dtykjyw1onnp8" path="res://cassette_path.gd" id="1_jufqi"]
 
 [sub_resource type="Curve2D" id="Curve2D_h74ws"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h74ws"]
+size = Vector2(8, 8)
+
 [node name="cassette_path" type="Path2D" groups=["path"]]
 curve = SubResource("Curve2D_h74ws")
+script = ExtResource("1_jufqi")
 
 [node name="path" type="PathFollow2D" parent="."]
 rotates = false
 loop = false
 
-[node name="follower" type="Node2D" parent="path"]
+[node name="tester" type="Area2D" parent="path"]
 
-[node name="ColorRect" type="ColorRect" parent="path/follower"]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="ColorRect" type="ColorRect" parent="path/tester"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="path/tester"]
+shape = SubResource("RectangleShape2D_h74ws")
+
+[connection signal="body_shape_entered" from="path/tester" to="." method="_on_tester_body_shape_entered"]
