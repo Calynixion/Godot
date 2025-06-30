@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsbp6qtfnw7ys"]
+[gd_scene load_steps=12 format=3 uid="uid://bsbp6qtfnw7ys"]
 
 [ext_resource type="PackedScene" uid="uid://cbatiu5ul2vfj" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://fvgltwv54n48" path="res://main.gd" id="1_4c57u"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1vxo6i164c55" path="res://vip.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c5sh4avbu02fy" path="res://kill_controller.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://tep7rsb176bf" path="res://sniper.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bpvvx4w7lun06" path="res://bullet.tscn" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://c38ecgde1hk3x" path="res://ui.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ooaucd6o660x" path="res://game_over_scrn.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://blnsp3tymie6p" path="res://cassette_path.tscn" id="10_4c57u"]
@@ -24,6 +25,8 @@ position = Vector2(240, 48)
 
 [node name="player" parent="." instance=ExtResource("1_0xm2m")]
 position = Vector2(148, 78)
+
+[node name="bullet" parent="player" instance=ExtResource("6_efxa6")]
 
 [node name="vip" parent="." groups=["vip"] instance=ExtResource("2_h2yge")]
 position = Vector2(234, 126)
