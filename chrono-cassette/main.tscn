@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsbp6qtfnw7ys"]
+[gd_scene load_steps=13 format=3 uid="uid://bsbp6qtfnw7ys"]
 
 [ext_resource type="PackedScene" uid="uid://cbatiu5ul2vfj" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://fvgltwv54n48" path="res://main.gd" id="1_4c57u"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ooaucd6o660x" path="res://game_over_scrn.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://blnsp3tymie6p" path="res://cassette_path.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://c05grg0a1ba1q" path="res://windowsnipe.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://dlwv8yr34aoev" path="res://different_enemy.tscn" id="12_dg77c"]
 
 [node name="main" type="Node2D" groups=["main"]]
 script = ExtResource("1_4c57u")
@@ -42,5 +43,8 @@ offset_left = -3.0
 
 [node name="cassette_path" parent="." instance=ExtResource("10_4c57u")]
 metadata/_edit_lock_ = true
+
+[node name="differentEnemy" parent="." instance=ExtResource("12_dg77c")]
+position = Vector2(65, 123)
 
 [connection signal="restarted" from="GameOverScrn" to="." method="_on_game_over_scrn_restarted"]

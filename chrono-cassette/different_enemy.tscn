@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlwv8yr34aoev"]
+
+[ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="1_eb6g5"]
+[ext_resource type="Script" uid="uid://mcd3ym5ghtfd" path="res://different_enemy.gd" id="1_fxppo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxppo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eb6g5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phgdb"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n14kb"]
+size = Vector2(40, 40)
+
+[node name="differentEnemy" type="CharacterBody2D"]
+script = ExtResource("1_fxppo")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, 4.17233e-07)
+scale = Vector2(0.3125, 0.3125)
+sprite_frames = SubResource("SpriteFrames_fxppo")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="hitbox" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(3.8147e-06, 3.8147e-06)
+shape = SubResource("RectangleShape2D_phgdb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.8147e-06, 3.8147e-06)
+shape = SubResource("RectangleShape2D_n14kb")
