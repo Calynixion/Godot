@@ -6,7 +6,7 @@ const speed = 150.0
 var recording=false
 var cassette_length=2
 var held_path=false
-var play_speed=1
+var play_speed=2
 var play_progress=0
 var playing=false
 var path_len=0
@@ -14,6 +14,7 @@ var lockout=false
 var mouse_pos=null
 var bullet=preload("res://bullet.tscn")
 @onready var debug=get_node("debug")
+@onready var gun=get_node("gun")
 func over():
 	queue_free() #deletes the player when game is over
 
@@ -70,8 +71,9 @@ func _physics_process(delta: float) -> void:
 			cassette_path.position+=offset
 		else:
 			follow.progress+=play_speed
-	#debug.text=str(follow.global_position)+str(global_position)
+	debug.text=str(cassette_path.curve.point_count)
 	queue_redraw()
+	gun.rotation=get_angle_to(get_global_mouse_position())-(3.141592/2)
 	
 
 func record_cassette():
@@ -79,10 +81,11 @@ func record_cassette():
 	#debug.text="active"
 
 func play_cassette():
-	if playing==false:
+	if playing==false and cassette_path.curve.point_count!=0:
 		playing=true
 		path_len=cassette_path.curve.get_baked_length()
 		play_progress=0
+		follow.progress=0
 		lockout=true
 	else:
 		playing=false
@@ -100,9 +103,7 @@ func stop_cassette():
 	follow.progress=0
 	lockout=false
 	cassette_path.position=Vector2(0,0)
-	
 	var offset=position-cassette_path.curve.get_point_position(0)
-
 	cassette_path.position+=offset
 
 func _draw():
@@ -113,7 +114,6 @@ func shoot():
 	add_child(new_bullet)
 	new_bullet.add_to_group("player_bullet")
 	var angle=get_angle_to(get_global_mouse_position())
-	debug.text=str(angle)
 	new_bullet.direction=Vector2(cos(angle), sin(angle))
 
 	

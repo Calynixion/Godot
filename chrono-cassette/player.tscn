@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbatiu5ul2vfj"]
+[gd_scene load_steps=8 format=3 uid="uid://cbatiu5ul2vfj"]
 
 [ext_resource type="Script" uid="uid://b7kxfwlugi8gy" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://chirlu0j0dnhd" path="res://Assets/Tilesets/player.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="3_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("2_onrkg")
@@ -47,3 +48,7 @@ one_shot = true
 [node name="debug" type="RichTextLabel" parent="."]
 offset_right = 128.0
 offset_bottom = 64.0
+
+[node name="gun" type="Sprite2D" parent="."]
+scale = Vector2(0.0625, 0.375)
+texture = ExtResource("3_i3pqv")

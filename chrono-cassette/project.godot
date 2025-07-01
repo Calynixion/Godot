@@ -28,6 +28,7 @@ killcontrol=""
 ui=""
 path=""
 player_bullet=""
+enemies=""
 
 [input]
 

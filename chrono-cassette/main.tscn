@@ -45,7 +45,7 @@ offset_left = -3.0
 [node name="cassette_path" parent="." instance=ExtResource("10_4c57u")]
 metadata/_edit_lock_ = true
 
-[node name="differentEnemy" parent="." instance=ExtResource("12_dg77c")]
+[node name="differentEnemy" parent="." groups=["enemies"] instance=ExtResource("12_dg77c")]
 position = Vector2(65, 123)
 
 [node name="Camera2D" type="Camera2D" parent="."]
