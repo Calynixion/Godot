@@ -61,9 +61,13 @@ func _physics_process(delta: float) -> void:
 		play_cassette()
 	if playing==true:
 		play_progress+=play_speed
+		global_position=follow.global_position
 		if play_progress>=path_len:
 			playing=false
 			lockout=false
+			cassette_path.position=Vector2(0,0)
+			var offset=position-cassette_path.curve.get_point_position(0)
+			cassette_path.position+=offset
 		else:
 			follow.progress+=play_speed
 	#debug.text=str(follow.global_position)+str(global_position)
@@ -86,12 +90,20 @@ func play_cassette():
 		play_progress=0
 		follow.progress=0
 		lockout=false
+		cassette_path.position=Vector2(0,0)
+		var offset=position-cassette_path.curve.get_point_position(0)
+		cassette_path.position+=offset
 
 func stop_cassette():
 	playing=false
 	play_progress=0
 	follow.progress=0
 	lockout=false
+	cassette_path.position=Vector2(0,0)
+	
+	var offset=position-cassette_path.curve.get_point_position(0)
+
+	cassette_path.position+=offset
 
 func _draw():
 	draw_line(position-global_position,get_local_mouse_position(),Color.RED,-2.0)
