@@ -11,7 +11,7 @@ var play_progress=0
 var playing=false
 var path_len=0
 var lockout=false
-var mouse_pos=get_global_mouse_position()
+var mouse_pos=null
 var bullet=preload("res://bullet.tscn")
 @onready var debug=get_node("debug")
 func over():
@@ -99,6 +99,7 @@ func _draw():
 func shoot():
 	var new_bullet=bullet.instantiate()
 	add_child(new_bullet)
+	new_bullet.add_to_group("player_bullet")
 	var angle=get_angle_to(get_global_mouse_position())
 	debug.text=str(angle)
 	new_bullet.direction=Vector2(cos(angle), sin(angle))

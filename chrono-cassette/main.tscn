@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ooaucd6o660x" path="res://game_over_scrn.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://blnsp3tymie6p" path="res://cassette_path.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://c05grg0a1ba1q" path="res://windowsnipe.tscn" id="11_efxa6"]
-[ext_resource type="PackedScene" uid="uid://dlwv8yr34aoev" path="res://different_enemy.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://dpos10i8hldil" path="res://different_enemy.tscn" id="12_dg77c"]
 
 [node name="main" type="Node2D" groups=["main"]]
 script = ExtResource("1_4c57u")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlwv8yr34aoev"]
+[gd_scene load_steps=6 format=3 uid="uid://dpos10i8hldil"]
 
 [ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="1_eb6g5"]
 [ext_resource type="Script" uid="uid://mcd3ym5ghtfd" path="res://different_enemy.gd" id="1_fxppo"]
@@ -38,3 +38,5 @@ shape = SubResource("RectangleShape2D_phgdb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.8147e-06, 3.8147e-06)
 shape = SubResource("RectangleShape2D_n14kb")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

@@ -27,6 +27,7 @@ overscrn=""
 killcontrol=""
 ui=""
 path=""
+player_bullet=""
 
 [input]
 

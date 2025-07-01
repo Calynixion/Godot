@@ -6,3 +6,10 @@ func _physics_process(float)->void:
 	var enemyAngle = get_angle_to(player.position)
 	velocity=speed*Vector2(cos(enemyAngle), sin(enemyAngle))
 	move_and_slide()
+
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player_bullet"):
+		queue_free()
+		
