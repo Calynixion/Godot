@@ -52,3 +52,5 @@ offset_bottom = 64.0
 [node name="gun" type="Sprite2D" parent="."]
 scale = Vector2(0.0625, 0.375)
 texture = ExtResource("3_i3pqv")
+
+[node name="shoot_cooldown" type="Timer" parent="."]

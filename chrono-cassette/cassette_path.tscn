@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtykjyw1onnp8" path="res://cassette_path.gd" id="1_jufqi"]
 
 [sub_resource type="Curve2D" id="Curve2D_h74ws"]
+resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jufqi"]
 size = Vector2(16, 16)
@@ -26,5 +27,7 @@ offset_bottom = 16.0
 [node name="terrain_collision" type="CollisionShape2D" parent="path/tester"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_jufqi")
+
+[node name="line" type="Line2D" parent="."]
 
 [connection signal="body_shape_entered" from="path/tester" to="." method="_on_tester_body_shape_entered"]

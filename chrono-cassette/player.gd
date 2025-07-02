@@ -2,9 +2,11 @@ extends CharacterBody2D
 @onready var cassette_path=get_tree().get_first_node_in_group("path")
 @onready var record_timer=get_node("record_timer")
 @onready var follow=cassette_path.get_node("path")
+@onready var cooldown=$shoot_cooldown
+
 const speed = 150.0
 var recording=false
-var cassette_length=5
+var cassette_length=2
 var held_path=false
 var play_speed=2
 var play_progress=0
@@ -15,6 +17,8 @@ var mouse_pos=null
 var bullet=preload("res://bullet.tscn")
 @onready var debug=get_node("debug")
 @onready var gun=get_node("gun")
+var can_shoot=true
+
 func over():
 	queue_free() #deletes the player when game is over
 
@@ -73,6 +77,8 @@ func _physics_process(delta: float) -> void:
 			Default.timestop=false
 		else:
 			follow.progress+=play_speed
+	if cooldown.is_stopped()==true:
+		can_shoot=true
 	debug.text=str(Default.timestop)
 	queue_redraw()
 	gun.rotation=get_angle_to(get_global_mouse_position())-(3.141592/2)
@@ -113,14 +119,24 @@ func stop_cassette():
 
 func _draw():
 	draw_line(position-global_position,get_local_mouse_position(),Color.RED,-2.0)
-
+	var l=cassette_path.line
+	l.default_color = Color.AQUA
+	l.width = 2
+	l.clear_points()
+	for point in cassette_path.curve.get_baked_points():  
+		l.add_point(point)
+	
 func shoot():
-	var new_bullet=bullet.instantiate()
-	add_child(new_bullet)
-	new_bullet.top_level=true
-	new_bullet.position=position
-	new_bullet.add_to_group("player_bullet")
-	var angle=get_angle_to(get_global_mouse_position())
-	new_bullet.direction=Vector2(cos(angle), sin(angle))
+	if can_shoot==true:
+		var new_bullet=bullet.instantiate()
+		add_child(new_bullet)
+		new_bullet.top_level=true
+		new_bullet.position=position
+		new_bullet.add_to_group("player_bullet")
+		var angle=get_angle_to(get_global_mouse_position())
+		new_bullet.direction=Vector2(cos(angle), sin(angle))
+		cooldown.start(0.25)
+		cooldown.one_shot=true
+		can_shoot=false
 
 	
