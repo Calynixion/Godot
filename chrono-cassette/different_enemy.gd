@@ -12,7 +12,8 @@ var i=false
 func _physics_process(float)->void:
 	var enemyAngle = get_angle_to(player.position)
 	velocity=speed*Vector2(cos(enemyAngle), sin(enemyAngle))
-	move_and_slide()
+	if Default.timestop==false:
+		move_and_slide()
 	hp_dyn.size.x=24*(hp/max_hp)
 	if i_timer.is_stopped()==true:
 		i=false

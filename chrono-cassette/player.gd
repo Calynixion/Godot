@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var follow=cassette_path.get_node("path")
 const speed = 150.0
 var recording=false
-var cassette_length=2
+var cassette_length=5
 var held_path=false
 var play_speed=2
 var play_progress=0
@@ -63,15 +63,17 @@ func _physics_process(delta: float) -> void:
 	if playing==true:
 		play_progress+=play_speed
 		global_position=follow.global_position
+		Default.timestop=true
 		if play_progress>=path_len:
 			playing=false
 			lockout=false
 			cassette_path.position=Vector2(0,0)
 			var offset=position-cassette_path.curve.get_point_position(0)
 			cassette_path.position+=offset
+			Default.timestop=false
 		else:
 			follow.progress+=play_speed
-	debug.text=str(cassette_path.curve.point_count)
+	debug.text=str(Default.timestop)
 	queue_redraw()
 	gun.rotation=get_angle_to(get_global_mouse_position())-(3.141592/2)
 	
@@ -87,6 +89,7 @@ func play_cassette():
 		play_progress=0
 		follow.progress=0
 		lockout=true
+		Default.timestop=true
 	else:
 		playing=false
 		path_len=0
@@ -96,6 +99,7 @@ func play_cassette():
 		cassette_path.position=Vector2(0,0)
 		var offset=position-cassette_path.curve.get_point_position(0)
 		cassette_path.position+=offset
+		Default.timestop=false
 
 func stop_cassette():
 	playing=false
@@ -105,6 +109,7 @@ func stop_cassette():
 	cassette_path.position=Vector2(0,0)
 	var offset=position-cassette_path.curve.get_point_position(0)
 	cassette_path.position+=offset
+	Default.timestop=false
 
 func _draw():
 	draw_line(position-global_position,get_local_mouse_position(),Color.RED,-2.0)
@@ -112,6 +117,8 @@ func _draw():
 func shoot():
 	var new_bullet=bullet.instantiate()
 	add_child(new_bullet)
+	new_bullet.top_level=true
+	new_bullet.position=position
 	new_bullet.add_to_group("player_bullet")
 	var angle=get_angle_to(get_global_mouse_position())
 	new_bullet.direction=Vector2(cos(angle), sin(angle))
