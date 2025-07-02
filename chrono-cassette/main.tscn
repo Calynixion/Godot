@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bsbp6qtfnw7ys"]
+[gd_scene load_steps=15 format=3 uid="uid://bsbp6qtfnw7ys"]
 
 [ext_resource type="PackedScene" uid="uid://cbatiu5ul2vfj" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://fvgltwv54n48" path="res://main.gd" id="1_4c57u"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://c05grg0a1ba1q" path="res://windowsnipe.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dpos10i8hldil" path="res://different_enemy.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://dw4utjg1g5alq" path="res://camera_2d.gd" id="13_ycdy4"]
+
+[sub_resource type="Curve2D" id="Curve2D_ycdy4"]
+resource_local_to_scene = true
 
 [node name="main" type="Node2D" groups=["main"]]
 script = ExtResource("1_4c57u")
@@ -43,6 +46,7 @@ visible = false
 offset_left = -3.0
 
 [node name="cassette_path" parent="." instance=ExtResource("10_4c57u")]
+curve = SubResource("Curve2D_ycdy4")
 metadata/_edit_lock_ = true
 
 [node name="differentEnemy" parent="." groups=["enemies"] instance=ExtResource("12_dg77c")]
