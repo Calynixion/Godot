@@ -68,7 +68,6 @@ offset_bottom = 24.0
 
 [node name="ray1" type="RayCast2D" parent="rays"]
 rotation = 1.5708
-scale = Vector2(1, 1)
 target_position = Vector2(0, 20)
 
 [node name="ray2" type="RayCast2D" parent="rays"]
@@ -84,7 +83,16 @@ target_position = Vector2(0, 20)
 
 [node name="ray5" type="RayCast2D" parent="rays"]
 rotation = -1.5708
-scale = Vector2(1, 1)
 target_position = Vector2(0, 20)
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 3.0
+target_desired_distance = 3.0
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

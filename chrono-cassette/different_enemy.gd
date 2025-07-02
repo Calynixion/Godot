@@ -9,20 +9,38 @@ var hp=float(25)
 var max_hp=float(25)
 var i=false
 @onready var rays=get_node("rays")
+@export var Goal: Node = null
 
-func _physics_process(float)->void:
-	var enemyAngle = get_angle_to(player.position)
-	velocity=speed*Vector2(cos(enemyAngle), sin(enemyAngle))
-	rays.rotation=(enemyAngle-(3.141592/2))
-	if Default.timestop==false:
-		move_and_slide()
+func _ready() -> void:
+	$NavigationAgent2D.target_position = Goal.global_position
+
+func _physics_process(float) -> void:
+	$NavigationAgent2D.target_position = Goal.global_position
+	if !$NavigationAgent2D.is_target_reached():
+		var nav_point_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
+		velocity = nav_point_direction * speed
+		if Default.timestop==false:
+			move_and_slide()
 	hp_dyn.size.x=24*(hp/max_hp)
 	if i_timer.is_stopped()==true:
 		i=false
 		i_indicator.visible=false
 	if hp<=0:
 		queue_free()
-	debug.text=str(enemyAngle)
+
+#func _physics_process(float)->void:
+#	var enemyAngle = get_angle_to(player.position)
+#	velocity=speed*Vector2(cos(enemyAngle), sin(enemyAngle))
+#	rays.rotation=(enemyAngle-(3.141592/2))
+#	if Default.timestop==false:
+#		move_and_slide()
+#	hp_dyn.size.x=24*(hp/max_hp)
+#	if i_timer.is_stopped()==true:
+#		i=false
+#		i_indicator.visible=false
+#	if hp<=0:
+#		queue_free()
+#	debug.text=str(enemyAngle)
 
 
 
@@ -37,3 +55,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		
 
 		
+
+
+func _on_timer_timeout() -> void:
+	if $NavigationAgent2D.target_position != Goal.global_position:
+		$NavigationAgent2D.target_position = Goal.global_position
+	$PathfindingUpdateTimer.start()

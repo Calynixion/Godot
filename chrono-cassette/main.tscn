@@ -31,7 +31,7 @@ position = Vector2(148, 78)
 [node name="bullet" parent="player" instance=ExtResource("6_efxa6")]
 
 [node name="vip" parent="." groups=["vip"] instance=ExtResource("2_h2yge")]
-position = Vector2(234, 126)
+position = Vector2(203.13, 145.722)
 
 [node name="sniper" parent="." groups=["sniper"] instance=ExtResource("4_1bvp3")]
 position = Vector2(240, -40)
@@ -45,8 +45,9 @@ offset_left = -3.0
 [node name="cassette_path" parent="." instance=ExtResource("10_4c57u")]
 metadata/_edit_lock_ = true
 
-[node name="differentEnemy" parent="." groups=["enemies"] instance=ExtResource("12_dg77c")]
+[node name="differentEnemy" parent="." node_paths=PackedStringArray("Goal") groups=["enemies"] instance=ExtResource("12_dg77c")]
 position = Vector2(64, 120)
+Goal = NodePath("../player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("13_ycdy4")
