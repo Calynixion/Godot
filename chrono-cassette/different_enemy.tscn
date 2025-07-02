@@ -64,4 +64,27 @@ color = Color(0, 0, 0, 0.439216)
 offset_right = 64.0
 offset_bottom = 24.0
 
+[node name="rays" type="Node2D" parent="."]
+
+[node name="ray1" type="RayCast2D" parent="rays"]
+rotation = 1.5708
+scale = Vector2(1, 1)
+target_position = Vector2(0, 20)
+
+[node name="ray2" type="RayCast2D" parent="rays"]
+rotation = 0.785398
+target_position = Vector2(0, 20)
+
+[node name="ray3" type="RayCast2D" parent="rays"]
+target_position = Vector2(0, 20)
+
+[node name="ray4" type="RayCast2D" parent="rays"]
+rotation = -0.785398
+target_position = Vector2(0, 20)
+
+[node name="ray5" type="RayCast2D" parent="rays"]
+rotation = -1.5708
+scale = Vector2(1, 1)
+target_position = Vector2(0, 20)
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
