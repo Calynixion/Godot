@@ -80,7 +80,7 @@ script = ExtResource("1_onrkg")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_onrkg")
 animation = &"run"
-frame_progress = 0.323416
+frame_progress = 0.0264534
 
 [node name="hitbox" type="Area2D" parent="." groups=["player"]]
 
@@ -95,7 +95,6 @@ shape = SubResource("CircleShape2D_i3pqv")
 one_shot = true
 
 [node name="debug" type="RichTextLabel" parent="."]
-visible = false
 offset_right = 128.0
 offset_bottom = 64.0
 
@@ -104,4 +103,19 @@ position = Vector2(7.5, -3.57628e-07)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_i3pqv")
 
+[node name="ColorRect" type="ColorRect" parent="gun"]
+visible = false
+offset_left = -2.0
+offset_top = -12.0
+offset_right = 2.0
+color = Color(1, 0, 0, 0.364706)
+
 [node name="shoot_cooldown" type="Timer" parent="."]
+
+[node name="reload" type="Timer" parent="."]
+
+[node name="i_timer" type="Timer" parent="."]
+
+[node name="record_cooldown" type="Timer" parent="."]
+
+[connection signal="body_shape_entered" from="hitbox" to="." method="_on_hitbox_body_shape_entered"]
