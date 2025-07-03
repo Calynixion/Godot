@@ -80,7 +80,7 @@ script = ExtResource("1_onrkg")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_onrkg")
 animation = &"run"
-frame_progress = 0.0264534
+frame_progress = 0.180068
 
 [node name="hitbox" type="Area2D" parent="." groups=["player"]]
 
@@ -95,6 +95,7 @@ shape = SubResource("CircleShape2D_i3pqv")
 one_shot = true
 
 [node name="debug" type="RichTextLabel" parent="."]
+visible = false
 offset_right = 128.0
 offset_bottom = 64.0
 

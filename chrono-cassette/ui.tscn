@@ -89,7 +89,7 @@ texture = ExtResource("2_nltto")
 [node name="wheels" type="AnimatedSprite2D" parent="cassette"]
 sprite_frames = SubResource("SpriteFrames_e2l4f")
 animation = &"reverse"
-frame_progress = 0.285133
+frame_progress = 0.191986
 
 [node name="ammo" type="Sprite2D" parent="."]
 position = Vector2(256, 216)
