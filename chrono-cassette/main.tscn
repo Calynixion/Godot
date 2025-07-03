@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bsbp6qtfnw7ys"]
+[gd_scene load_steps=16 format=3 uid="uid://bsbp6qtfnw7ys"]
 
 [ext_resource type="PackedScene" uid="uid://cbatiu5ul2vfj" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://fvgltwv54n48" path="res://main.gd" id="1_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dfbly4bnqnm7l" path="res://terrain.tscn" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c1vxo6i164c55" path="res://vip.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://barkvbxer0jm4" path="res://main_menu.tscn" id="2_w48qg"]
 [ext_resource type="PackedScene" uid="uid://c5sh4avbu02fy" path="res://kill_controller.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://tep7rsb176bf" path="res://sniper.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bpvvx4w7lun06" path="res://bullet.tscn" id="6_efxa6"]
@@ -55,5 +56,7 @@ Goal = NodePath("../player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("13_ycdy4")
+
+[node name="main_menu" parent="." instance=ExtResource("2_w48qg")]
 
 [connection signal="restarted" from="GameOverScrn" to="." method="_on_game_over_scrn_restarted"]
