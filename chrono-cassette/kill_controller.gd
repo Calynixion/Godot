@@ -8,7 +8,7 @@ extends Node
 
 
 func _ready() -> void:
-	sniper_timer.start(5)
+	#sniper_timer.start(5)
 	sniper_timer.one_shot=true
 	
 
@@ -17,9 +17,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	debug.text=str(sniper_timer.time_left)
 	if sniper_timer.is_stopped()==true:
-		debug.text="Done"
-		sniper_timer.stop()
-			
+		#debug.text="Done"
+		#sniper_timer.stop()
+		pass
 			
 
 func _on_sniper_timer_timeout():

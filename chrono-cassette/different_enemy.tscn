@@ -1,21 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpos10i8hldil"]
+[gd_scene load_steps=7 format=3 uid="uid://dpos10i8hldil"]
 
-[ext_resource type="Texture2D" uid="uid://ysy5wbywwfi6" path="res://icon.svg" id="1_eb6g5"]
 [ext_resource type="Script" uid="uid://mcd3ym5ghtfd" path="res://different_enemy.gd" id="1_fxppo"]
+[ext_resource type="Texture2D" uid="uid://tgg0sjdwjmxc" path="res://Assets/Tilesets/player-export.png" id="2_fxppo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phgdb"]
+atlas = ExtResource("2_fxppo")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fxppo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_eb6g5")
+"texture": SubResource("AtlasTexture_phgdb")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_phgdb"]
-size = Vector2(16, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxppo"]
+height = 26.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fxppo"]
 radius = 8.0
@@ -24,66 +28,43 @@ radius = 8.0
 script = ExtResource("1_fxppo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(9.53674e-07, -4.76837e-07)
-scale = Vector2(0.125, 0.125)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fxppo")
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="hitbox" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource("RectangleShape2D_phgdb")
+shape = SubResource("CapsuleShape2D_fxppo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fxppo")
 
 [node name="hp_full" type="ColorRect" parent="."]
 offset_left = -12.0
-offset_top = -12.0
+offset_top = -24.0
 offset_right = 12.0
-offset_bottom = -9.0
+offset_bottom = -21.0
 color = Color(1, 0, 0, 1)
 
 [node name="hp_dyn" type="ColorRect" parent="."]
 offset_left = -12.0
-offset_top = -12.0
+offset_top = -24.0
 offset_right = 12.0
-offset_bottom = -9.0
+offset_bottom = -21.0
 color = Color(0, 1, 0, 1)
 
 [node name="i_timer" type="Timer" parent="."]
 
 [node name="i_indicator" type="ColorRect" parent="."]
-visible = false
 offset_left = -8.0
-offset_top = -8.0
+offset_top = -12.0
 offset_right = 8.0
-offset_bottom = 8.0
-color = Color(0, 0, 0, 0.439216)
+offset_bottom = 10.0
+color = Color(0.976471, 0, 0, 0.427451)
 
 [node name="debug" type="RichTextLabel" parent="."]
 offset_right = 64.0
 offset_bottom = 24.0
-
-[node name="rays" type="Node2D" parent="."]
-
-[node name="ray1" type="RayCast2D" parent="rays"]
-rotation = 1.5708
-target_position = Vector2(0, 20)
-
-[node name="ray2" type="RayCast2D" parent="rays"]
-rotation = 0.785398
-target_position = Vector2(0, 20)
-
-[node name="ray3" type="RayCast2D" parent="rays"]
-target_position = Vector2(0, 20)
-
-[node name="ray4" type="RayCast2D" parent="rays"]
-rotation = -0.785398
-target_position = Vector2(0, 20)
-
-[node name="ray5" type="RayCast2D" parent="rays"]
-rotation = -1.5708
-target_position = Vector2(0, 20)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 3.0

@@ -19,6 +19,10 @@ func _physics_process(float) -> void:
 	if !$NavigationAgent2D.is_target_reached():
 		var nav_point_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
 		velocity = nav_point_direction * speed
+		if velocity.x<0:
+			$AnimatedSprite2D.flip_h=true
+		elif velocity.y>0:
+			$AnimatedSprite2D.flip_h=false
 		if Default.timestop==false:
 			move_and_slide()
 	hp_dyn.size.x=24*(hp/max_hp)

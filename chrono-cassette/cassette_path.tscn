@@ -5,8 +5,8 @@
 [sub_resource type="Curve2D" id="Curve2D_h74ws"]
 resource_local_to_scene = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jufqi"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jufqi"]
+radius = 8.0
 
 [node name="cassette_path" type="Path2D" groups=["path"]]
 curve = SubResource("Curve2D_h74ws")
@@ -26,7 +26,7 @@ offset_bottom = 16.0
 
 [node name="terrain_collision" type="CollisionShape2D" parent="path/tester"]
 position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_jufqi")
+shape = SubResource("CircleShape2D_jufqi")
 
 [node name="line" type="Line2D" parent="."]
 
