@@ -89,7 +89,6 @@ target_position = Vector2(0, 20)
 path_desired_distance = 3.0
 target_desired_distance = 3.0
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
