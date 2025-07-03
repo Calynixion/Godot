@@ -18,6 +18,7 @@ var bullet=preload("res://bullet.tscn")
 @onready var debug=get_node("debug")
 @onready var gun=get_node("gun")
 var can_shoot=true
+@onready var spr=$sprite
 
 func over():
 	queue_free() #deletes the player when game is over
@@ -29,6 +30,10 @@ func _physics_process(delta: float) -> void:
 	direction=direction.normalized()
 	velocity=direction * speed
 	var old_pos=position
+	if velocity.x<0:
+		spr.flip_h=true
+	elif velocity.x>0:
+		spr.flip_h=false
 	if lockout==false:
 		move_and_slide()
 	if Input.is_action_just_pressed("attack"):
@@ -79,11 +84,14 @@ func _physics_process(delta: float) -> void:
 			follow.progress+=play_speed
 	if cooldown.is_stopped()==true:
 		can_shoot=true
-	debug.text=str(Default.timestop)
-	queue_redraw()
-	gun.rotation=get_angle_to(get_global_mouse_position())-(3.141592/2)
 	
-
+	queue_redraw()
+	gun.rotation=get_angle_to(get_global_mouse_position())+(3.141592/2)
+	if gun.rotation<0 or gun.rotation>3.141592:
+		gun.flip_h=true
+	else:
+		gun.flip_h=false
+	debug.text=str(get_angle_to(get_global_mouse_position())+(3.141592/2))
 func record_cassette():
 	cassette_path.curve.add_point(position)
 	#debug.text="active"
@@ -118,7 +126,7 @@ func stop_cassette():
 	Default.timestop=false
 
 func _draw():
-	draw_line(position-global_position,get_local_mouse_position(),Color.RED,-2.0)
+	#draw_line(position-global_position,get_local_mouse_position(),Color.RED,-2.0)
 	var l=cassette_path.line
 	l.default_color = Color.AQUA
 	l.width = 2
@@ -135,6 +143,7 @@ func shoot():
 		new_bullet.add_to_group("player_bullet")
 		var angle=get_angle_to(get_global_mouse_position())
 		new_bullet.direction=Vector2(cos(angle), sin(angle))
+		new_bullet.spr.rotation=angle+(3.141592/2)
 		cooldown.start(0.25)
 		cooldown.one_shot=true
 		can_shoot=false

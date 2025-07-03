@@ -1,7 +1,7 @@
 extends Area2D
 var speed=10
 var direction=Vector2(1,0)
-
+@onready var spr=$Sprite2D
 
 func _physics_process(delta: float) -> void:
 	top_level=true

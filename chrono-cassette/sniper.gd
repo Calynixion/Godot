@@ -1,4 +1,5 @@
 extends Node2D
 func snipe(target):
-	target.health=0
+	#target.health=0
+	pass
 	
