@@ -8,7 +8,6 @@ const speed = 50
 var hp=float(25)
 var max_hp=float(25)
 var i=false
-@onready var rays=get_node("rays")
 @export var Goal: Node = null
 
 func _ready() -> void:

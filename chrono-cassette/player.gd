@@ -20,6 +20,21 @@ var bullet=preload("res://bullet.tscn")
 var can_shoot=true
 @onready var spr=$sprite
 
+
+var health=float(10)
+var max_health=float(10)
+var ammmo=5
+var max_ammmo=5
+
+@onready var reload_timer=$reload
+@onready var empty=$gun/ColorRect
+
+var i=false
+@onready var i_timer=$i_timer
+
+var can_record=true
+@onready var record_cooldown=$record_cooldown
+
 func over():
 	queue_free() #deletes the player when game is over
 
@@ -51,6 +66,7 @@ func _physics_process(delta: float) -> void:
 		play_progress=0
 		follow.progress=0
 		lockout=false
+		
 	if record_timer.time_left<=0:
 		if recording==true:
 			#debug.text=""
@@ -67,8 +83,11 @@ func _physics_process(delta: float) -> void:
 		#debug.text="moving"
 	elif recording==true and direction!=Vector2(0,0):
 		record_cassette()
-	if Input.is_action_just_pressed("play_cassette") and recording==false:
+	if Input.is_action_just_pressed("play_cassette") and recording==false and can_record==true:
 		play_cassette()
+		can_record=false
+		record_cooldown.start(10)
+		record_cooldown.one_shot=true
 	if playing==true:
 		play_progress+=play_speed
 		global_position=follow.global_position
@@ -84,6 +103,9 @@ func _physics_process(delta: float) -> void:
 			follow.progress+=play_speed
 	if cooldown.is_stopped()==true:
 		can_shoot=true
+	if record_cooldown.is_stopped()==true:
+		can_record=true
+	debug.text=str(can_record)
 	
 	queue_redraw()
 	gun.rotation=get_angle_to(get_global_mouse_position())+(3.141592/2)
@@ -91,7 +113,10 @@ func _physics_process(delta: float) -> void:
 		gun.flip_h=true
 	else:
 		gun.flip_h=false
-	debug.text=str(get_angle_to(get_global_mouse_position())+(3.141592/2))
+	reload()
+	if i_timer.is_stopped()==true:
+		i=false
+
 func record_cassette():
 	cassette_path.curve.add_point(position)
 	#debug.text="active"
@@ -129,13 +154,18 @@ func _draw():
 	#draw_line(position-global_position,get_local_mouse_position(),Color.RED,-2.0)
 	var l=cassette_path.line
 	l.default_color = Color.AQUA
+	if playing==true:
+		l.default_color = Color.RED
 	l.width = 2
 	l.clear_points()
 	for point in cassette_path.curve.get_baked_points():  
 		l.add_point(point)
 	
 func shoot():
-	if can_shoot==true:
+	if can_shoot==true and ammmo>0:
+		ammmo-=1
+		if ammmo<0:
+			ammmo=0
 		var new_bullet=bullet.instantiate()
 		add_child(new_bullet)
 		new_bullet.top_level=true
@@ -148,4 +178,25 @@ func shoot():
 		cooldown.one_shot=true
 		can_shoot=false
 
+func reload():
+	if ammmo<=0:
+		empty.visible=true
+	else:
+		empty.visible=false
+	if Input.is_action_just_pressed("reload"):
+		reload_timer.start(2)
+		reload_timer.one_shot=true
+	if reload_timer.is_stopped()==true:
+		ammmo=max_ammmo
+		reload_timer.start(10000000000000)
 	
+
+
+
+func _on_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body.is_in_group("enemies"):
+		if i==false:
+			health-=3
+			i_timer.start(0.25)
+			i_timer.one_shot=true
+			i=true
