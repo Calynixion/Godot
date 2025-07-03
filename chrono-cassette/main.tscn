@@ -1,18 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://bsbp6qtfnw7ys"]
+[gd_scene load_steps=13 format=3 uid="uid://bsbp6qtfnw7ys"]
 
 [ext_resource type="PackedScene" uid="uid://cbatiu5ul2vfj" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://fvgltwv54n48" path="res://main.gd" id="1_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dfbly4bnqnm7l" path="res://terrain.tscn" id="1_7mycd"]
-[ext_resource type="PackedScene" uid="uid://c1vxo6i164c55" path="res://vip.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c5sh4avbu02fy" path="res://kill_controller.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://tep7rsb176bf" path="res://sniper.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bpvvx4w7lun06" path="res://bullet.tscn" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://c38ecgde1hk3x" path="res://ui.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ooaucd6o660x" path="res://game_over_scrn.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://blnsp3tymie6p" path="res://cassette_path.tscn" id="10_4c57u"]
-[ext_resource type="PackedScene" uid="uid://c05grg0a1ba1q" path="res://windowsnipe.tscn" id="11_efxa6"]
-[ext_resource type="PackedScene" uid="uid://dpos10i8hldil" path="res://different_enemy.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://dw4utjg1g5alq" path="res://camera_2d.gd" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://db1rghjqduosa" path="res://enemy_spawner_new.tscn" id="14_w48qg"]
 
 [sub_resource type="Curve2D" id="Curve2D_ycdy4"]
 resource_local_to_scene = true
@@ -22,19 +20,14 @@ script = ExtResource("1_4c57u")
 
 [node name="terrain" parent="." instance=ExtResource("1_7mycd")]
 scale = Vector2(2, 2)
+metadata/_edit_lock_ = true
 
 [node name="kill_controller" parent="." instance=ExtResource("3_h2yge")]
-
-[node name="Windowsnipe" parent="." instance=ExtResource("11_efxa6")]
-position = Vector2(240, 48)
 
 [node name="player" parent="." instance=ExtResource("1_0xm2m")]
 position = Vector2(148, 78)
 
 [node name="bullet" parent="player" instance=ExtResource("6_efxa6")]
-
-[node name="vip" parent="." groups=["vip"] instance=ExtResource("2_h2yge")]
-position = Vector2(203.13, 145.722)
 
 [node name="sniper" parent="." groups=["sniper"] instance=ExtResource("4_1bvp3")]
 position = Vector2(240, -40)
@@ -49,11 +42,19 @@ offset_left = -3.0
 curve = SubResource("Curve2D_ycdy4")
 metadata/_edit_lock_ = true
 
-[node name="differentEnemy" parent="." node_paths=PackedStringArray("Goal") groups=["enemies"] instance=ExtResource("12_dg77c")]
-position = Vector2(64, 120)
-Goal = NodePath("../player")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("13_ycdy4")
+
+[node name="enemy_spawner_new3" parent="." instance=ExtResource("14_w48qg")]
+position = Vector2(1144, 136)
+
+[node name="enemy_spawner_new4" parent="." instance=ExtResource("14_w48qg")]
+position = Vector2(1032, 704)
+
+[node name="enemy_spawner_new2" parent="." instance=ExtResource("14_w48qg")]
+position = Vector2(504, 144)
+
+[node name="enemy_spawner_new" parent="." instance=ExtResource("14_w48qg")]
+position = Vector2(64, 352)
 
 [connection signal="restarted" from="GameOverScrn" to="." method="_on_game_over_scrn_restarted"]

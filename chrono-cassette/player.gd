@@ -4,9 +4,10 @@ extends CharacterBody2D
 @onready var follow=cassette_path.get_node("path")
 @onready var cooldown=$shoot_cooldown
 
+
 const speed = 150.0
 var recording=false
-var cassette_length=2
+var cassette_length=1
 var held_path=false
 var play_speed=2
 var play_progress=0
@@ -23,8 +24,8 @@ var can_shoot=true
 
 var health=float(10)
 var max_health=float(10)
-var ammmo=5
-var max_ammmo=5
+var ammmo=10
+var max_ammmo=10
 
 @onready var reload_timer=$reload
 @onready var empty=$gun/ColorRect
@@ -146,7 +147,11 @@ func stop_cassette():
 	follow.progress=0
 	lockout=false
 	cassette_path.position=Vector2(0,0)
-	var offset=position-cassette_path.curve.get_point_position(0)
+	var offset=Vector2()
+	if cassette_path.curve.get_point_position(0)!=null and cassette_path.curve.get_point_position(0)!=Vector2(0,0):
+		offset=position-cassette_path.curve.get_point_position(0)
+	else:
+		offset=Vector2(0,0)
 	cassette_path.position+=offset
 	Default.timestop=false
 
@@ -197,6 +202,6 @@ func _on_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index
 	if body.is_in_group("enemies"):
 		if i==false:
 			health-=3
-			i_timer.start(0.25)
+			i_timer.start(0.15)
 			i_timer.one_shot=true
 			i=true

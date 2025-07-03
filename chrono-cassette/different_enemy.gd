@@ -50,11 +50,12 @@ func _physics_process(float) -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet"):
 		if i==false:
-			hp-=5
+			hp-=7
 			i_timer.start(0.0000001)
 			i_timer.one_shot=true
 			i=true
 			i_indicator.visible=true
+			area.hp-=1
 		
 
 		

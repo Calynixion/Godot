@@ -10,7 +10,7 @@ extends Control
 @onready var reloading=$reloading
 
 func _process(delta: float) -> void:
-	if player!=null:
+	if player!=null and player.health>0:
 		position=player.position+Vector2(-160,-120)
 		if position.x<0:
 			position.x=0

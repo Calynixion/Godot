@@ -1,7 +1,11 @@
 extends Control
 @onready var color_rect = $ColorRect
-
+@onready var player=get_tree().get_first_node_in_group("player")
 signal restarted
+
+func _process(delta: float) -> void:
+	if player.health>0:
+		position=player.position+Vector2(-160,-120)
 
 func gameover(): #called when player dies
 	visible = true
@@ -11,4 +15,3 @@ func gameover(): #called when player dies
 func _on_button_pressed():
 	visible = false
 	restarted.emit()
-	
